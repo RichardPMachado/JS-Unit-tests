@@ -27,7 +27,6 @@
       food: {'coxinha': 3.90, 'sanduiche', 9.90},
       drinks: {'agua': 3.90, 'cerveja': 6.90}
     });
-
     meuRestaurante.fetchMenu() // Retorno: Menu acima
 
   - Uma chave `consumption` armazenando um array de strings. Cada string é a chave de um pedido.
@@ -69,7 +68,9 @@
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, ao receber uma string como parâmetro, 
 // adiciona essa string ao array de `objetoRetornado.consumption`. Essa nova função será adicionada à chave `order`.
-// 
+// const aux = (string) => {
+
+// };
 // DICA PARA DESENVOLVIMENTO: 
 // - Definir a função `createMenu()`
 // - Definir o objeto que a `createMenu()` retorna, mas separadamente 
@@ -88,11 +89,28 @@
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` armazenando uma função
 // que:
-// - percorrerá item a item de `objetoRetornado.consumption`;
+// - percorrerá aux a item de `objetoRetornado.consumption`;
 // - fará a soma do preço desses itens;
 // - retornará o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+// const fetchMenu = () => {
+  
+// }
+
+const orderFromMenu = () => 'coxinha';
+
+const createMenu = (objeto) => ({ 
+  fetchMenu: () => objeto,
+  consumption: [],
+  order(orderFromMenu) {
+    this.consumption.push(item);
+  },
+  }
+);
+
+// console.log(Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu()));
+
+const meuRestaurante = createMenu();
 
 module.exports = createMenu;
