@@ -68,9 +68,6 @@
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, ao receber uma string como parâmetro, 
 // adiciona essa string ao array de `objetoRetornado.consumption`. Essa nova função será adicionada à chave `order`.
-// const aux = (string) => {
-
-// };
 // DICA PARA DESENVOLVIMENTO: 
 // - Definir a função `createMenu()`
 // - Definir o objeto que a `createMenu()` retorna, mas separadamente 
@@ -97,20 +94,16 @@
 // const fetchMenu = () => {
   
 // }
+const restaurant = {};
 
-const orderFromMenu = () => 'coxinha';
+const createMenu = (objeto) => {  
+    restaurant.fetchMenu = () => objeto;
+    restaurant.consumption = [];
+    restaurant.order = (item) => { restaurant.consumption.push(item); };
 
-const createMenu = (objeto) => ({ 
-  fetchMenu: () => objeto,
-  consumption: [],
-  order(orderFromMenu) {
-    this.consumption.push(item);
-  },
-  }
-);
+  return restaurant;
+};
 
 // console.log(Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu()));
-
-const meuRestaurante = createMenu();
 
 module.exports = createMenu;
