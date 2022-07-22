@@ -94,16 +94,42 @@
 // const fetchMenu = () => {
   
 // }
-const restaurant = {};
+
+// const menuFoodDrinks = {
+//   food: {
+//     coxinha: 3.9,
+//     sopa: 9.9,
+//     sanduiche: 9.9,
+//     },
+//   drink: {
+//     cerveja: 6.9,
+//     agua: 3.9,
+//   },
+// };
 
 const createMenu = (objeto) => {  
-    restaurant.fetchMenu = () => objeto;
-    restaurant.consumption = [];
-    restaurant.order = (item) => { restaurant.consumption.push(item); };
-
+  const restaurant = {
+    fetchMenu: () => objeto,
+    consumption: [],
+    order: (item) => { restaurant.consumption.push(item); },
+    pay: () => {
+      const foods = Object.keys(objeto.food);
+      const drinks = Object.keys(objeto.drink);
+      
+      let aux = 0;
+      
+      for (const item of restaurant.consumption) {
+        if (drinks.includes(item)) {
+          aux += objeto.drink[item];
+        }
+        if (foods.includes(item)) {
+          aux += objeto.food[item];
+        }
+      }
+      return aux * 1.1;
+    },
+  };
   return restaurant;
 };
-
-// console.log(Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu()));
-
+// console.log(createMenu(menuFoodDrinks).pay());
 module.exports = createMenu;
